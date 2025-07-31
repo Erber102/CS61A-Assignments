@@ -13,9 +13,9 @@ def a_plus_abs_b(a, b):
     3
     """
     if b < 0:
-        f = _____
+        f = lambda a,b : a - b
     else:
-        f = _____
+        f = lambda a,b : a + b
     return f(a, b)
 
 def a_plus_abs_b_syntax_check():
@@ -42,7 +42,7 @@ def two_of_three(i, j, k):
     >>> two_of_three(5, 5, 5)
     50
     """
-    return _____
+    return i*i + j*j + k*k - max(i,j,k)*max(i,j,k)
 
 def two_of_three_syntax_check():
     """Check that your two_of_three code consists of nothing but a return statement.
@@ -66,7 +66,11 @@ def largest_factor(n):
     1
     """
     "*** YOUR CODE HERE ***"
-
+    for i in range(2,n):
+        if i * i > n:
+            return 1
+        if n % i == 0:
+            return int(n / i)
 
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
@@ -88,4 +92,16 @@ def hailstone(n):
     1
     """
     "*** YOUR CODE HERE ***"
+    cnt = 1
+    print(n)
+    while (n > 1):
+        if n % 2 == 1:
+            n = 3 * n + 1
+        else:
+            n = int(n/2)
+        
+        print(n)
+        cnt += 1
+    return cnt
 
+#always remember the operator '/' return a float type variable, you are supposed to use int() if necessary
